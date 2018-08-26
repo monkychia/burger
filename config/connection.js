@@ -3,14 +3,12 @@ let keys = require("../keys.js");
 let sqlKeys = keys.sql;
 let mysql = require("mysql");
 
-//sqlKeys.dbPassword
-
 // Set up our connection information
 let connection;
 
-// if (process.env.JAWSDB_URL) {
-//     connection = mysql.createConnection(process.env.JAWSDB_URL);
-// } else {
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
     connection = mysql.createConnection({
         host: "localhost",
         port: 3306,
@@ -18,7 +16,7 @@ let connection;
         password: "6G]A4xu'uT>&!YKU",
         database: "burgers_db"
     });
-// };
+};
 
 // Connect to the database
 connection.connect(function(err) {
