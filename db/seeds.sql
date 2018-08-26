@@ -7,4 +7,3 @@ INSERT INTO burgers (burger_name, devoured) VALUES ("Tuna Burger", false);
 INSERT INTO burgers (burger_name, devoured) VALUES ("Double Cheese Burger", true);
 
 SELECT * FROM `burgers`;
-
