@@ -13,8 +13,7 @@ let orm = {
     },
 
     insertOne: function(newBurger, eaten, callback) {
-
-        let queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (? ,?);";
+        let queryString = "INSERT INTO burgers (burger_name, devoured, createdAt) VALUES (? ,?, NOW());";
         connection.query(queryString, [newBurger, eaten], function(err, result) {
             if (err) {
                 console.log("Err: ", err);
