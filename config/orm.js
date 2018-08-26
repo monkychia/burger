@@ -17,7 +17,7 @@ let orm = {
         let queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (? ,?);";
         connection.query(queryString, [newBurger, eaten], function(err, result) {
             if (err) {
-                return res.status(500).end();
+                console.log("Err: ", err);
             } else {
                 console.log(result);
                 // return result;
