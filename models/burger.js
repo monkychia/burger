@@ -15,7 +15,7 @@ let burgers = {
         });
     },
 
-    updateOne: function(id) {
+    updateOne: function(id, callback) {
         orm.updateOne(id, function(res) {
             console.log('burger.js - updateOne - res ', res);
             callback(res);

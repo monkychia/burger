@@ -50,17 +50,12 @@
 
 <script type="text/javascript">
     $(".delBurger").on("click", function(event) {
-
-        console.log('jQueryyyyyyyy');
-
         event.preventDefault();
         var id = {
             id: $(this).data("burgerid")
         }
 
-        console.log('------------- id ', id);
-
-        $.ajax("/update/" + id, {
+        $.ajax("/update/" + id.id, {
             type: "PUT",
             data: id
         }).then(

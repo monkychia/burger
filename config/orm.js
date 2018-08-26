@@ -13,25 +13,27 @@ let orm = {
     },
 
     insertOne: function(newBurger, eaten, callback) {
-        let queryString = "INSERT INTO burgers (burger_name, devoured, createdAt) VALUES (? ,?, NOW());";
+        let queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (? ,?);";
         connection.query(queryString, [newBurger, eaten], function(err, result) {
             if (err) {
                 console.log("Err: ", err);
             } else {
-                console.log(result);
-                // return result;
                 callback(result);
             }
-        })
+        });
     },
 
     updateOne: function(id, callback) {
         console.log('orm id ', id);
 
-        let queryString = "UPDATE burgers SET devoured = true WHERE id = ?";
+        let queryString = "UPDATE burgers SET devoured = true WHERE id = ?;";
         connection.query(queryString, [id], function(err, result) {
-            callback(result);
-        })
+            if (err) {
+                console.log('Err: ', err);
+            } else {
+                callback(result);
+            }
+        });
     }
 }
 
