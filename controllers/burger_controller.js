@@ -17,8 +17,6 @@ router.post('/create', function(req, res){
 });
 
 router.put("/update/:id", function(req, res){
-	console.log('req.params.id ', req.params.id);
-
 	burger.updateOne(req.params.id, function(data){
 		if (data.changedRows === 0){
 			// no rows are updated, throw 404
