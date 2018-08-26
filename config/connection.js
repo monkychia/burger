@@ -7,8 +7,10 @@ let mysql = require("mysql");
 let connection;
 
 if (process.env.JAWSDB_URL) {
+    console.log('DEBUG: JAWSDB detected.');
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
+    console.log('DEBUG: no JAWSDB');
     connection = mysql.createConnection({
         host: "localhost",
         port: 3306,
